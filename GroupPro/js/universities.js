@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'card';
             card.innerHTML = `
-              <img src="${university.university_picture}" alt="${university.name}">
+              <img src="http://127.0.0.1:8000/${university.university_picture}" alt="${university.name}">
               <div class="card-title">${university.name}</div>
             `;
             card.addEventListener('click', () => {
