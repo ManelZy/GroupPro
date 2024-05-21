@@ -3,9 +3,9 @@ document.getElementById('signupForm').addEventListener('submit', async function(
 
     const first_name = document.getElementById('first_name').value;
     const last_name = document.getElementById('last_name').value;
-    const email = document.getElementById('email').value;
+    const email = document.getElementById('signup_email').value;
     const phone_number = document.getElementById('phone_number').value;
-    const password = document.getElementById('password').value;
+    const password = document.getElementById('signup_password').value;
     const password_confirmation = document.getElementById('password_confirmation').value;
 
     console.log("Data before API call:", { first_name, last_name, email, phone_number, password, password_confirmation });
