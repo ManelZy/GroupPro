@@ -7,34 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       if (data.answer === 'success') {
         const universities = data.universities;
-        universities.forEach((university, index) => {
-          // Fetch the picture for each university
-          fetch('http://127.0.0.1:8000/univ/get_univ_picture', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name: university.name }),
-          })
-            .then(response => response.json())
-            .then(pictureData => {
-              if (pictureData.answer === 'success') {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                  <img src="${pictureData.profile_picture}" alt="${university.name}">
-                  <div class="card-title">${university.name}</div>
-                `;
-                card.addEventListener('click', () => {
-                  // Redirect to the university detail page with university ID in the URL
-                  window.location.href = `universityDetails.html?id=${index}`;
-                });
-                universityCardsContainer.appendChild(card);
-              } else {
-                console.error('Error fetching picture:', pictureData.error_message);
-              }
-            })
-            .catch(error => console.error('Error fetching picture:', error));
+        universities.forEach(university => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <img src="http://127.0.0.1:8000/${university.university_picture}" alt="${university.name}">
+            <div class="card-title">${university.name}</div>
+          `;
+          card.addEventListener('click', () => {
+            // Redirect to the university detail page with university name in the URL
+            const encodedUniversityName = encodeURIComponent(university.name);
+            window.location.href = `universityDetails.html?name=${encodedUniversityName}`;
+          });
+          universityCardsContainer.appendChild(card);
         });
       } else {
         console.error('Error fetching universities:', data.error_message);
