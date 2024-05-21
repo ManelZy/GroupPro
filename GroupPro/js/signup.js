@@ -8,7 +8,7 @@ document.getElementById('signupForm').addEventListener('submit', async function(
     const password = document.getElementById('password').value;
     const password_confirmation = document.getElementById('password_confirmation').value;
 
-    console.log("Email before API call:", email);
+    console.log("Data before API call:", { first_name, last_name, email, phone_number, password, password_confirmation });
 
     try {
         const result = await signupUser({ first_name, last_name, email, phone_number, password, password_confirmation });
@@ -30,18 +30,11 @@ async function signupUser(data) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                first_name: data.first_name,
-                last_name: data.last_name,
-                email: data.email,
-                phone_number: data.phone_number,
-                password: data.password,
-                password_confirmation: data.password_confirmation
-            })
+            body: JSON.stringify(data)
         });
 
         const ret_data = await response.json();
-        console.log(ret_data);
+        console.log("Response from API:", ret_data);
 
         if (ret_data.answer) {
             if (ret_data.answer === 'success') {
