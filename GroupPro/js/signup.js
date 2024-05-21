@@ -1,14 +1,17 @@
 document.getElementById('signupForm').addEventListener('submit', async function(event) {
     event.preventDefault();
 
+    const first_name = document.getElementById('first_name').value;
+    const last_name = document.getElementById('last_name').value;
     const email = document.getElementById('email').value;
+    const phone_number = document.getElementById('phone_number').value;
     const password = document.getElementById('password').value;
-    const name = document.getElementById('name').value;
+    const password_confirmation = document.getElementById('password_confirmation').value;
 
     console.log("Email before API call:", email);
 
     try {
-        const result = await signupUser({ email, password, name });
+        const result = await signupUser({ first_name, last_name, email, phone_number, password, password_confirmation });
         if (result === 'success') {
             window.location.href = 'signup-success.html'; // Redirect to the next step or a success page
         } else {
@@ -28,9 +31,12 @@ async function signupUser(data) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name: data.name,
+                first_name: data.first_name,
+                last_name: data.last_name,
                 email: data.email,
-                password: data.password
+                phone_number: data.phone_number,
+                password: data.password,
+                password_confirmation: data.password_confirmation
             })
         });
 
