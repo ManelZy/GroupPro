@@ -1,0 +1,207 @@
+@font-face {
+    font-family: 'Rochester';
+    src: url('Rochester/Rochester-Regular.ttf') format('truetype');
+    /* Update the path to the font file as per your project structure */
+  }
+  
+  header {
+    background-color: rgb(227, 236, 252);
+    color: rgb(0, 0, 0);
+    font-size: 27px;
+    text-align: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* Ensures header is above other content */
+    font-family: 'Rochester';
+    font-weight: bold;
+    display: flex; /* Make header items align horizontally */
+    align-items: center; /* Align items vertically */
+  
+  }
+  
+  header img {
+    height: 50px; /* Adjust the height of the logo as needed */
+    vertical-align: middle;
+    margin-left: 20px;
+
+  }
+  
+  .container {
+    
+        padding-top:70px; /* Adjust the value to match the height of your header */
+    
+    
+  }
+  
+  header nav {
+    margin-left: 350px;
+
+  }
+  
+  header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Make menu items align horizontally */
+    margin-left: 20px;
+  }
+  
+  header nav ul li {
+    margin-right: 20px; /* Adjust the spacing between menu items */
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: 'Poppins', sans-serif; /* Update to Poppins font */
+  }
+  
+  header nav ul li a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+  }
+  
+  header nav ul li a:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: orange;
+    bottom: -3px; /* Adjust the position of the line */
+    right: -3px;
+  }
+
+  .acitve
+  {
+    
+  }
+  
+  .buttons {
+    margin-left: auto; /* Push the buttons to the far right */
+    display: flex; /* Make buttons align horizontally */
+   
+  }
+  
+  
+  
+ 
+  
+  .account {
+    background-color: white;
+    color: black;
+    margin-left: 10px; /* Adjust the spacing between buttons */
+    margin-right: 20px;
+    border: none;
+    border-radius: 50%;
+    font-family:poppins;
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 150px;
+    height: 45px;
+    border-radius: 25px;
+    background:rgb(255, 255, 255);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+  
+    
+  }
+  
+
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+  }
+  
+  .searchBar {
+    width:450px;
+    height: 20px;
+    padding: 10px;
+  
+    border: 1px solid rgb(96, 93, 93);
+    border-radius: 15px;
+  }
+  
+  .searchBar::placeholder {
+    color: #999;
+    font-family: poppins;
+    font-size: medium;
+    font-weight: lighter;
+  }
+  .search-container {
+    position: relative;
+}
+
+
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust this value to position the icon as desired */
+    transform: translateY(-50%);
+    color: #888; /* Adjust the color of the icon */
+    pointer-events: none; /* This ensures that the icon does not interfere with input events */
+    margin-right: 500px;
+}
+
+.text
+{
+    margin-top: 40px;
+   margin-left: 410px;
+}
+
+.trending-section {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  /* Style for the box */
+  .trending-box {
+    width: 400px;
+    height: 100px;
+    background-color: #ccc;
+    margin: 0 30px;
+  }
+
+  /* Style for the arrows */
+  .arrow {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+
+
+
+  .background
+  {
+    height: 500px;
+    margin-bottom: 30px;
+    background-image: url('Images/background2.png');
+    background-size: cover;
+
+  }
+
+  .background h4
+  {
+    font-family: poppins;
+    position: center;
+    margin-left: 550px;
+    font-weight: bold;
+    font-size: larger;
+
+
+  }
+  

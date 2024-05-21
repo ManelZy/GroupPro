@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>University Details</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/landingPage.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rochester&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="images/logo.png" alt="Logo" width="50" height="50">
+        </div>
+        <div class="navbar-content">
+            <div class="navbar-brand">UniGuide</div>
+            <ul class="navbar-menu">
+                <li><a href="landingPage.html">Home</a></li>
+                <li><a href="chatbot.html">Chatbot</a></li>
+                <li><a href="majors.html">Majors</a></li>
+                <li><a href="universities.html">Universities</a></li>
+                <li><a href="comparaison.html">Unicompare</a></li>
+            </ul>
+            <div class="navbar-actions">
+                <button class="button">Join Us</button>
+            </div>
+        </div>
+    </nav>
+    <section class="section1"><h3 id="universityName"></h3><img id="universityProfileImage" src="" alt="University Logo"></section>
+    <section class="section2"><img src="images/banner.jpg" alt=""></section>
+    <section class="content-section">
+        <div class="text">
+            <p id="universityDescription"></p>
+        </div>
+        <div class="image">
+            <img id="universityMainImage" src="images/university.jpg" alt="University Image" width="80%">
+        </div>
+    </section>
+    <section class="majors-section">
+        <h2 class="section-title">The offered majors by this institute:</h2>
+        <div class="majors-container" id="majorsContainer">
+            <!-- Major cards will be inserted here dynamically -->
+        </div>
+    </section>
+    <section class="location-section">
+        <h2 class="section-title">The school's location</h2>
+        <div class="map-container">
+            <iframe id="universityMap" src="" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+    <section class="club-section">
+        <h2 class="section-title">School's Scientific Club</h2>
+        <div class="club-content">
+            <div class="club-logo">
+                <img src="images/club.jpeg" alt="Club Logo">
+            </div>
+            <div class="club-description">
+                <p id="clubDescription">This is a description of the School's Scientific Club. It includes information about the club's activities, goals, and achievements.</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>UniGuide 2024 ©</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const universityId = urlParams.get('id');
+            
+            if (universityId) {
+                fetch(`http://127.0.0.1:8000/univ/get_univ_info/${universityId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.answer === 'success') {
+                        const university = data.university;
+                        document.getElementById('universityName').textContent = university.name;
+                        document.getElementById('universityDescription').textContent = university.description;
+                        // Fetch university profile picture
+                        fetch('http://127.0.0.1:8000/univ/get_univ_picture', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ name: university.name }),
+                        })
+                        .then(response => response.json())
+                        .then(pictureData => {
+                            if (pictureData.answer === 'success') {
+                                document.getElementById('universityProfileImage').src = pictureData.profile_picture;
+                            } else {
+                                console.error('Error fetching picture:', pictureData.error_message);
+                            }
+                        })
+                        .catch(error => console.error('Error fetching picture:', error));
+
+                        // Populate majors
+                        const majorsContainer = document.getElementById('majorsContainer');
+                        university.majors.forEach(major => {
+                            const majorCard = document.createElement('div');
+                            majorCard.className = 'major-card';
+                            majorCard.innerHTML = `
+                                <img src="images/sp1.png" alt="${major.name}">
+                                <h3 class="major-title">${major.name}</h3>
+                            `;
+                            majorsContainer.appendChild(majorCard);
+                        });
+
+                        // Set location map (if you have the coordinates, use them; otherwise, a static location)
+                        document.getElementById('universityMap').src = `https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(university.location)}&key=YOUR_API_KEY`;
+                    } else {
+                        console.error('Error fetching university details:', data.error_message);
+                    }
+                })
+                .catch(error => console.error('Error fetching university details:', error));
+            } else {
+                console.error('No university ID provided in URL');
+            }
+        });
+    </script>
+    <script src="js/navigation.js"></script>
+</body>
+</html>
