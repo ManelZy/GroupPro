@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       if (data.answer === 'success') {
         const universities = data.universities;
-        const defaultImage = "image/universitylogo.png"; // Replace with your actual path
+        const defaultImage = "images/universitylogo.png"; 
 
         universities.forEach(university => {
           const card = document.createElement('div');
