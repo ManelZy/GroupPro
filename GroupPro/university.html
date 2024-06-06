@@ -62,61 +62,7 @@
     <footer class="footer">
         <p>UniGuide 2024 ©</p>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const universityId = urlParams.get('id');
-            
-            if (universityId) {
-                fetch(`http://127.0.0.1:8000/univ/get_univ_info/${universityId}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.answer === 'success') {
-                        const university = data.university;
-                        document.getElementById('universityName').textContent = university.name;
-                        document.getElementById('universityDescription').textContent = university.description;
-                        // Fetch university profile picture
-                        fetch('http://127.0.0.1:8000/univ/get_univ_picture', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({ name: university.name }),
-                        })
-                        .then(response => response.json())
-                        .then(pictureData => {
-                            if (pictureData.answer === 'success') {
-                                document.getElementById('universityProfileImage').src = pictureData.profile_picture;
-                            } else {
-                                console.error('Error fetching picture:', pictureData.error_message);
-                            }
-                        })
-                        .catch(error => console.error('Error fetching picture:', error));
-
-                        // Populate majors
-                        const majorsContainer = document.getElementById('majorsContainer');
-                        university.majors.forEach(major => {
-                            const majorCard = document.createElement('div');
-                            majorCard.className = 'major-card';
-                            majorCard.innerHTML = `
-                                <img src="images/sp1.png" alt="${major.name}">
-                                <h3 class="major-title">${major.name}</h3>
-                            `;
-                            majorsContainer.appendChild(majorCard);
-                        });
-
-                        // Set location map (if you have the coordinates, use them; otherwise, a static location)
-                        document.getElementById('universityMap').src = `https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(university.location)}&key=YOUR_API_KEY`;
-                    } else {
-                        console.error('Error fetching university details:', data.error_message);
-                    }
-                })
-                .catch(error => console.error('Error fetching university details:', error));
-            } else {
-                console.error('No university ID provided in URL');
-            }
-        });
-    </script>
+   
     <script src="js/navigation.js"></script>
 </body>
 </html>
