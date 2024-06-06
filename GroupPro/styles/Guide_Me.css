@@ -1,0 +1,262 @@
+@font-face {
+    font-family: 'Rochester';
+    src: url('Rochester/Rochester-Regular.ttf') format('truetype');
+    /* Update the path to the font file as per your project structure */
+  }
+  
+  header {
+    background-color: rgb(227, 236, 252);
+    color: rgb(0, 0, 0);
+    font-size: 27px;
+    text-align: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* Ensures header is above other content */
+    font-family: 'Rochester';
+    font-weight: bold;
+    display: flex; /* Make header items align horizontally */
+    align-items: center; /* Align items vertically */
+  
+  }
+  
+  header img {
+    height: 50px; /* Adjust the height of the logo as needed */
+    vertical-align: middle;
+    margin-left: 20px;
+
+  }
+  
+  .container {
+    
+        padding-top:70px; /* Adjust the value to match the height of your header */
+    
+    
+  }
+  
+  header nav {
+    margin-left: 350px;
+
+  }
+  
+  header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Make menu items align horizontally */
+    margin-left: 20px;
+  }
+  
+  header nav ul li {
+    margin-right: 20px; /* Adjust the spacing between menu items */
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: 'Poppins', sans-serif; /* Update to Poppins font */
+  }
+  
+  header nav ul li a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+  }
+  
+  header nav ul li a:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: orange;
+    bottom: -3px; /* Adjust the position of the line */
+    right: -3px;
+  }
+  
+  .buttons {
+    margin-left: auto; /* Push the buttons to the far right */
+    display: flex; /* Make buttons align horizontally */
+   
+  }
+  
+  
+  
+  .join-btn {
+    background-color: white;
+    color: black;
+    margin-left: 10px; /* Adjust the spacing between buttons */
+    margin-right: 10px;
+    border: none;
+    border-radius: 50%;
+    font-family:poppins;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+  
+    width: 150px;
+    height: 45px;
+    border-radius: 25px;
+    background-color: rgb(25, 69, 230);
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+
+ 
+   
+  }
+  
+  .sign-in-btn {
+    background-color: white;
+    color: black;
+    margin-left: 10px; /* Adjust the spacing between buttons */
+    margin-right: 20px;
+    border: none;
+    border-radius: 50%;
+    font-family:poppins;
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 150px;
+    height: 45px;
+    border-radius: 25px;
+    background:rgb(255, 255, 255);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+  
+    
+  }
+  
+
+  body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  .container .background
+  {
+    height: 350px;
+
+    background-image: url('Images/background.png');
+    background-size: cover;
+  }
+
+  .background h4
+  {
+    margin-top: 30px;
+    font-family: poppins;
+    position: center;
+    margin-left: 550px;
+    color: blue;
+
+
+  }
+  .background .text
+  {
+    margin-bottom:100px;
+    color: rgb(161, 161, 161);
+    font-size: medium;
+    font-weight: lighter;
+    margin-left: 100px;
+
+  }
+  .separator
+  {
+     width: 800px; 
+     color: blue;
+     background-color: blue;
+     border: 0.5px solid rgba(151, 151, 172, 0.649);
+     margin-bottom: 50px;
+  }
+  .question
+  {
+    font-weight: lighter;
+    font-size: 15px;
+    margin-left: 30px;
+  }
+  hr.separator {
+    border: 0.5px solid blue;
+    background-color: blue;
+    
+  }
+  .form-container {
+    margin: 20px;
+  }
+  .question {
+    margin-bottom: 20px;
+  }
+  .question h4 {
+    margin-bottom: 10px;
+  }
+  .options {
+    display: flex;
+    gap: 30px;
+    margin-left: 50px;
+  }
+  .option-box {
+    padding: 10px;
+    border: 2px solid rgb(232, 145, 24);
+    background-color: rgb(255, 108, 11);
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    margin: 20;
+    border-radius: 25px;
+    width: 150px;
+  }
+  .option-box.selected {
+    background-color: rgb(27, 212, 27);
+  }
+  .option-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-left: 50px;
+    padding: 50;
+  }
+  input[type="number"] {
+    width: 300px;
+    padding: 5px;
+    margin-left: 50px;
+    font-size: medium;
+    border-radius: 25px;
+    border: 1px solid rgb(176, 175, 174);
+  }
+  .box
+  {
+    background-color: rgb(255, 50, 71);
+
+  }
+  .submit_button
+  {
+    margin-left: 550px;
+    width: 300px;
+    height: 50px;
+
+  }
+  .numRecommendations
+  {
+    margin-left: 50px;
+  }
+  .large-dropdown
+  {
+
+
+   width: 100px;
+   height: 50px;
+
+
+  }

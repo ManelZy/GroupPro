@@ -1,0 +1,198 @@
+@font-face {
+    font-family: 'Rochester';
+    src: url('Rochester/Rochester-Regular.ttf') format('truetype');
+    /* Update the path to the font file as per your project structure */
+  }
+  
+  header {
+    background-color: rgb(227, 236, 252);
+    color: rgb(0, 0, 0);
+    font-size: 27px;
+    text-align: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* Ensures header is above other content */
+    font-family: 'Rochester';
+    font-weight: bold;
+    display: flex; /* Make header items align horizontally */
+    align-items: center; /* Align items vertically */
+  
+  }
+  
+  header img {
+    height: 50px; /* Adjust the height of the logo as needed */
+    vertical-align: middle;
+    margin-left: 20px;
+
+  }
+  
+  .container {
+    
+        padding-top:70px; /* Adjust the value to match the height of your header */
+    
+    
+  }
+  
+  header nav {
+    margin-left: 350px;
+
+  }
+  
+  header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Make menu items align horizontally */
+    margin-left: 20px;
+  }
+  
+  header nav ul li {
+    margin-right: 20px; /* Adjust the spacing between menu items */
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: 'Poppins', sans-serif; /* Update to Poppins font */
+  }
+  
+  header nav ul li a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+  }
+  
+  header nav ul li a:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: orange;
+    bottom: -3px; /* Adjust the position of the line */
+    right: -3px;
+  }
+  
+  .buttons {
+    margin-left: auto; /* Push the buttons to the far right */
+    display: flex; /* Make buttons align horizontally */
+   
+  }
+  
+  
+  
+  .join-btn {
+    background-color: white;
+    color: black;
+    margin-left: 10px; /* Adjust the spacing between buttons */
+    margin-right: 10px;
+    border: none;
+    border-radius: 50%;
+    font-family:poppins;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+  
+    width: 150px;
+    height: 45px;
+    border-radius: 25px;
+    background-color: rgb(25, 69, 230);
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+
+ 
+   
+  }
+  
+  .sign-in-btn {
+    background-color: white;
+    color: black;
+    margin-left: 10px; /* Adjust the spacing between buttons */
+    margin-right: 20px;
+    border: none;
+    border-radius: 50%;
+    font-family:poppins;
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 150px;
+    height: 45px;
+    border-radius: 25px;
+    background:rgb(255, 255, 255);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+  
+    
+  }
+  
+
+  body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+    .text1
+    {
+        color: blue;
+
+        font-family: poppins;
+        font-weight: 30px;
+        font-size: 20px;
+        margin-top: 100px;
+        margin-left: 300px;
+    }
+
+    .text
+    {
+        color: blue;
+
+        font-family: poppins;
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 20px;
+        margin-left: 490px;
+    }
+
+
+
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 60px; /* Adjust the gap between cards as needed */
+        margin-left: 180px;
+      }
+      .card {
+        background-color: #fff; /* Example styling, adjust as needed */
+        border: 1px solid #ccc; /* Example styling, adjust as needed */
+        border-radius: 8px; /* Example styling, adjust as needed */
+        overflow: hidden; /* Example styling, adjust as needed */
+        text-align: center; /* Example styling, adjust as needed */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Example styling, adjust as needed */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 250px;
+      }
+      .card img {
+        width: 100%; /* Make the image cover the width of the card */
+        flex-grow: 1; /* Allow the image to grow and take up the remaining space */
+        object-fit: cover; /* Cover the remaining space without distorting the image */
+      }
+      .card-title {
+        font-size: 1.2em; /* Example styling, adjust as needed */
+        padding: 10px; /* Example styling, adjust as needed */
+        background-color: #9d9898; /* Example styling, adjust as needed */
+      }
