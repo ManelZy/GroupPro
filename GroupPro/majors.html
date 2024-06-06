@@ -8,8 +8,31 @@
   <link rel="stylesheet" href="styles/majors.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rochester&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
-
-
+  <style>
+    .pagination {
+      display: inline-block;
+      margin-top: 20px;
+      margin-left: 400px;
+    }
+    .pagination a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+    .pagination a.active {
+      background-color: #1f00cc;
+      color: white;
+      border-radius: 5px;
+    }
+    .pagination a:hover:not(.active) {
+      background-color: #ddd;
+      border-radius: 5px;
+    }
+    .card {
+      display: none; /* Initially hide all cards */
+    }
+  </style>
 </head>
 <body>
 <nav class="navbar">
@@ -22,11 +45,10 @@
         <li><a href="landingPage.html">Home</a></li>
         <li><a href="chatbot.html">Chatbot</a></li>
         <li><a href="majors.html">Majors</a></li>
-        <li><a href="university.html">Universities</a></li>
+        <li><a href="universities.html">Universities</a></li>
         <li><a href="comparaison.html">Unicompare</a></li>
       </ul>
       <div class="navbar-actions">
-       
         <button class="button">Join Us</button>
       </div>
     </div>
@@ -34,50 +56,9 @@
 <div class="search">
   <input type="search" placeholder="Search by major, university, location....">
 </div>
-
   
-  <div class="card-container">
-    <div class="card">
-      <a href="majorInfo.html" style="text-decoration: none;">
-        <img src="images/biological.png" alt="Image 2">
-        <div class="card-title">Biology</div>
-      </a>
-    </div>
-    
-    <div class="card">
-      <img src="images/biological.png" alt="Image 2">
-      <div class="card-title">Biology</div>
-    </div>
-    <div class="card">
-        <img src="images/biological.png" alt="Image 2">
-        <div class="card-title">Biology</div>
-      </div>
-      <div class="card">
-        <img src="images/biological.png" alt="Image 2">
-        <div class="card-title">Biology</div>
-      </div>
-      <div class="card">
-        <img src="images/biological.png" alt="Image 2">
-        <div class="card-title">Biology</div>
-      </div>
-      <div class="card">
-        <img src="images/biological.png" alt="Image 2">
-        <div class="card-title">Biology</div>
-      </div>
-      <div class="card">
-        <img src="images/biological.png" alt="Image 2">
-        <div class="card-title">Biology</div>
-      </div>
-      <div class="card">
-        <img src="images/biological.png" alt="Image 2">
-        <div class="card-title">Biology</div>
-      </div>
-      <div class="card">
-        <img src="images/biological.png" alt="Image 2">
-        <div class="card-title">Biology</div>
-      </div>
-
- </div> 
+<div id="specialtiesCards" class="card-container"></div>
+<div id="pagination" class="pagination"></div>
 
  <div class="text-center">
     <h2>Explore majors by clicking on the map's pins</h2>
@@ -102,7 +83,6 @@
     <p>UniGuide 2024 ©</p>
   </footer>
   <script src="js/navigation.js"></script>
+  <script src="js/specialties.js"></script>
 </body>
-
-  
-</html> 
+</html>
