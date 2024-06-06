@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universities</title>
+  <link rel="stylesheet" href="styles/landingPage.css">
+  <link rel="stylesheet" href="styles/majors.css">
+  <link rel="stylesheet" href="styles/Guide_Me.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rochester&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="images/logo.png" alt="Logo" width="50" height="50">
+    </div>
+    <div class="navbar-content">
+      <div class="navbar-brand">UniGuide</div>
+      <ul class="navbar-menu">
+        <li><a href="landingPage.html">Home</a></li>
+        <li><a href="chatbot.html">Chatbot</a></li>
+        <li><a href="majors.html">Majors</a></li>
+        <li><a href="universities.html">Universities</a></li>
+        <li><a href="comparaison.html">Unicompare</a></li>
+        <li><a href="Guide_Me.html">GuideMe</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <button class="button">Join Us</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="background">
+    <h4>Your personalized journey in a click</h4>
+    <h3 class="text">Welcome to our personalized journey towards your dreams! Let's embark on a discovery of your interests and aspirations, taking each step closer to realizing your academic and career goals together.</h3>
+    <hr class="separator">
+    <form id="recommendationForm" class="form-container" onsubmit="handleSubmit(event)">
+      <!-- First Question -->
+      <div class="question">
+        <h2 class="question">1. What was your high school specialization?</h2>
+        <div class="options" id="specializationOptions">
+          <div class="option-box box" onclick="selectSingleOption(this, 'specializationOptions')">Math</div>
+          <div class="option-box box" onclick="selectSingleOption(this, 'specializationOptions')">Mathechnique</div>
+          <div class="option-box box" onclick="selectSingleOption(this, 'specializationOptions')">Scientifique</div>
+          <div class="option-box box" onclick="selectSingleOption(this, 'specializationOptions')">Gestion</div>
+          <div class="option-box box" onclick="selectSingleOption(this, 'specializationOptions')">Lettre</div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <!-- Second Question -->
+      <div class="question">
+        <h2 class="question">2. Your favorite modules</h2>
+        <div class="option-boxes" id="modulesOptions">
+          <div class="option-box" onclick="selectMultipleOptions(this)">Module 1</div>
+          <div class="option-box" onclick="selectMultipleOptions(this)">Module 2</div>
+          <div class="option-box" onclick="selectMultipleOptions(this)">Module 3</div>
+          <div class="option-box" onclick="selectMultipleOptions(this)">Module 4</div>
+          <div class="option-box" onclick="selectMultipleOptions(this)">Module 5</div>
+          <div class="option-box" onclick="selectMultipleOptions(this)">Module 6</div>
+          <div class="option-box" onclick="selectMultipleOptions(this)">Module 7</div>
+          <div class="option-box" onclick="selectMultipleOptions(this)">Module 8</div>
+          <div class="option-box" onclick="selectMultipleOptions(this)">Module 9</div>
+          <div class="option-box" onclick="selectMultipleOptions(this)">Module 10</div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <!-- Third Question -->
+      <div class="question">
+        <h2 class="question">3. How much did you get in the BAC?</h2>
+        <input type="number" step="0.01" min="0" max="20" placeholder="Enter your mark" name="bacMark" required>
+      </div>
+      <br>
+      <br>
+      <!-- Fourth Question -->
+      <div class="question">
+        <h2 class="question">4. How much did you get in the second year of high school?</h2>
+        <input type="number" step="0.01" min="0" max="20" placeholder="Enter your mark" name="secondYearMark" required>
+      </div>
+      <br>
+      <br>
+      <div class="question">
+        <h2 class="question">5. Please enter the number of recommendations you want</h2>
+        <div class="numRecommendations">
+
+        <select name="numRecommendations" class="large-dropdown" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+       </div>
+      </div>
+
+      <br><br>
+      <hr class="separator">
+      <div class="navbar-actions">
+        <button type="submit" class="button submit_button">Reveal Recommendations</button>
+      </div>
+    </form>
+  </div>
+  <br>
+  <br>
+
+
+
+
+
+
+
+  <footer class="footer">
+    <p>UniGuide 2024 ©</p>
+  </footer>
+  <script src="js/navigation.js"></script>
+  <script>
+    function selectSingleOption(element, containerId) {
+      const options = document.getElementById(containerId).children;
+      for (let i = 0; i < options.length; i++) {
+        options[i].classList.remove('selected');
+      }
+      element.classList.add('selected');
+    }
+
+    function selectMultipleOptions(element) {
+      element.classList.toggle('selected');
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = document.getElementById('recommendationForm');
+      const formData = new FormData(form);
+
+      const selectedSpecialization = document.querySelector('#specializationOptions .selected');
+      const selectedModules = document.querySelectorAll('#modulesOptions .selected');
+      const bacMark = formData.get('bacMark');
+      const secondYearMark = formData.get('secondYearMark');
+
+      if (!selectedSpecialization) {
+        alert('Please select your high school specialization.');
+        return;
+      }
+
+      if (selectedModules.length === 0) {
+        alert('Please select at least one favorite module.');
+        return;
+      }
+
+      const specialization = selectedSpecialization.textContent;
+      const modules = Array.from(selectedModules).map(module => module.textContent);
+
+      // Send the data to the server
+      fetch('/your-server-endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          specialization,
+          modules,
+          bacMark,
+          secondYearMark
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response data
+        console.log(data);
+        // You can display the recommendations here
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  </script>
+</body>
+</html>
