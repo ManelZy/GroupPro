@@ -1,48 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Universities</title>
-  <link rel="stylesheet" href="styles/landingPage.css">
-  <link rel="stylesheet" href="styles/majors.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rochester&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universities</title>
+  <link rel="stylesheet" href="styles/landingPage.css">
+  <link rel="stylesheet" href="styles/majors.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rochester&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+  <style>
+   .pagination {
+      display: inline-block;
+      margin-top: 100px;
+      margin-left: 400px;
+    }
+    .pagination a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+    .pagination a.active {
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+    }
+    .pagination a:hover:not(.active) {
+      background-color: #ddd;
+      border-radius: 5px;
+    }
+    .card {
+      display: none; /* Initially hide all cards */
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="navbar-logo">
-      <img src="images/logo.png" alt="Logo" width="50" height="50">
-    </div>
-    <div class="navbar-content">
-      <div class="navbar-brand">UniGuide</div>
-      <ul class="navbar-menu">
-        <li><a href="landingPage.html">Home</a></li>
-        <li><a href="chatbot.html">Chatbot</a></li>
-        <li><a href="majors.html">Majors</a></li>
-        <li><a href="universities.html">Universities</a></li>
-        <li><a href="comparaison.html">Unicompare</a></li>
-      </ul>
-      <div class="navbar-actions">
-        <button class="button">Join Us</button>
-      </div>
-    </div>
-  </nav>
-  <div class="search">
-    <input type="search" placeholder="Search by major, university, location....">
-  </div>
-  <div id="universityCards" class="card-container"></div>
-  <div id="pagination" class="pagination-container"></div>
-  <div class="text-center">
-    <h2>Explore majors by clicking on the map's pins</h2>
-  </div>
-  <div class="full-width-picture">
-    <img src="images/map.png" alt="Full Width Picture">
-  </div>
-  <footer class="footer">
-    <p>UniGuide 2024 ©</p>
-  </footer>
-  <script src="js/universities.js"></script>
-  <script src="js/navigation.js"></script>
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="images/logo.png" alt="Logo" width="50" height="50">
+    </div>
+    <div class="navbar-content">
+      <div class="navbar-brand">UniGuide</div>
+      <ul class="navbar-menu">
+        <li><a href="landingPage.html">Home</a></li>
+        <li><a href="chatbot.html">Chatbot</a></li>
+        <li><a href="majors.html">Majors</a></li>
+        <li><a href="universities.html">Universities</a></li>
+        <li><a href="comparaison.html">Unicompare</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <button class="button">Join Us</button>
+      </div>
+    </div>
+  </nav>
+  <div class="search">
+    <input type="search" placeholder="Search by major, university, location....">
+  </div>
+  <div id="universityCards" class="card-container"></div>
+  <div id="pagination" class="pagination"></div>
+  <div class="text-center">
+    <h2>Explore universities by clicking on the map's pins</h2>
+  </div>
+  <div class="full-width-picture">
+    <img src="images/map.png" alt="Full Width Picture">
+  </div>
+  <footer class="footer">
+    <p>UniGuide 2024 ©</p>
+  </footer>
+  <script src="js/universities.js"></script>
+  <script src="js/navigation.js"></script>
 </body>
 </html>
